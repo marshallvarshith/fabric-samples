@@ -269,5 +269,5 @@ pushd() {
 }
 
 popd() {
-  command popd "$@" > /dev/null
+   command popd "$@" > /dev/null || echo "Directory stack empty or popd failed"
 }
