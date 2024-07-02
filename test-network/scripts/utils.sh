@@ -265,9 +265,16 @@ export -f infoln
 export -f warnln
 
 pushd() {
-  command pushd "$@" > /dev/null
+  command pushd "$@" > /dev/null || {
+    echo "Failed to push directory onto stack: $*"
+    exit 1
+  }
 }
 
 popd() {
-   command popd "$@" > /dev/null || echo "Directory stack empty or popd failed"
+  command popd "$@" > /dev/null || {
+    echo "Failed to pop directory from stack or stack is empty."
+    exit 1
+  }
 }
+
