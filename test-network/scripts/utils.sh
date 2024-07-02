@@ -269,12 +269,5 @@ pushd() {
     echo "Failed to push directory onto stack: $*"
     exit 1
   }
+  echo "Directory stack after pushd: $(dirs)"
 }
-
-popd() {
-  command popd "$@" > /dev/null || {
-    echo "Failed to pop directory from stack or stack is empty."
-    exit 1
-  }
-}
-
