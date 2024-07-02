@@ -263,3 +263,11 @@ export -f errorln
 export -f successln
 export -f infoln
 export -f warnln
+
+pushd() {
+  command pushd "$@" > /dev/null
+}
+
+popd() {
+  command popd "$@" > /dev/null
+}
