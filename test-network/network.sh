@@ -23,7 +23,7 @@ export FABRIC_CFG_PATH=${PWD}/configtx
 export VERBOSE=false
 
 # push to the required directory & set a trap to go back if needed
-pushd ${ROOTDIR} > /dev/null
+pushd $"ROOTDIR" > /dev/null
 trap "popd > /dev/null" EXIT
 
 . scripts/utils.sh
