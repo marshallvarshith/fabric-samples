@@ -263,3 +263,11 @@ export -f errorln
 export -f successln
 export -f infoln
 export -f warnln
+
+pushd() {
+  command pushd "$@" > /dev/null || {
+    echo "Failed to push directory onto stack: $*"
+    exit 1
+  }
+  echo "Directory stack after pushd: $(dirs)"
+}
